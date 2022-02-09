@@ -157,9 +157,10 @@ function HTMLMagnifier(options) {
     magnifierContent.innerHTML = '';
     const bodyOriginal = document.body;
     const bodyCopy = bodyOriginal.cloneNode(true);
-    const color = bodyOriginal.style.backgroundColor;
+    const style = window.getComputedStyle(bodyOriginal);
+    const color = style.getPropertyValue('background-color');
     if (color) {
-      magnifier.css('background-color', color);
+        magnifier.style.backgroundColor = color;
     }
     bodyCopy.style.cursor = 'auto';
     bodyCopy.style.paddingTop = '0px';
